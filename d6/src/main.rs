@@ -15,7 +15,7 @@ fn main() {
     let default = guard.clone();
     
     let mut path = map.clone();
-    while true {
+    loop {
         if guard[0] == 0 || guard[0] as usize == map.len() - 1 || guard[1] == 0 || guard[1] as usize == map[0].len() - 1 { break; }
         if map[(guard[0] + dir[0]) as usize][(guard[1] + dir[1]) as usize] != '#' {
             guard[0] += dir[0];
@@ -36,13 +36,13 @@ fn main() {
     
     c = 0;
     for (i, line) in map.iter().enumerate() {
-        for (j, ch) in line.iter().enumerate() {
+        for (j, _) in line.iter().enumerate() {
             guard = default.clone();
             dir = vec![-1, 0];
             path = map.clone();
             path[i][j] = 'O';
             let mut visited: HashMap<Vec<i32>, Vec<Vec<i32>>> = HashMap::new();
-            while true {
+            loop {
                 if guard[0] == 0 || guard[0] as usize == map.len() - 1 || guard[1] == 0 || guard[1] as usize == map[0].len() - 1 { break; }
                 let ahead = path[(guard[0] + dir[0]) as usize][(guard[1] + dir[1]) as usize];
                 if ahead != '#' && ahead != 'O' {
