@@ -1,14 +1,4 @@
-use std::collections::{HashMap, HashSet};
-
-fn print(path: Vec<Vec<char>>) {
-    for a in path.iter() {
-        for b in a.iter() {
-            print!("{b}");
-        }
-        println!();
-    }
-    println!();
-}
+use std::collections::{HashMap};
 
 fn main() {
     let file = std::fs::read_to_string("input2.txt").unwrap();
